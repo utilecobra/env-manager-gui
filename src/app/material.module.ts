@@ -1,17 +1,29 @@
 import { NgModule } from '@angular/core';
 import {
   MdButtonModule,
-  MdSidenavModule
+  MdSidenavModule,
+  MdToolbarModule,
+  MdIconModule,
+  MdListModule,
+  MdProgressSpinnerModule,
 } from '@angular/material';
 
 @NgModule({
   imports: [
     MdButtonModule,
-    MdSidenavModule
+    MdSidenavModule,
+    MdToolbarModule,
+    MdIconModule,
+    MdListModule,
+    MdProgressSpinnerModule,
   ],
   exports: [
     MdButtonModule,
-    MdSidenavModule
+    MdSidenavModule,
+    MdToolbarModule,
+    MdIconModule,
+    MdListModule,
+    MdProgressSpinnerModule,
   ]
 })
 

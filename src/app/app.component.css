@@ -1,16 +1,32 @@
-.sidenav-container {
-  /* width: 1000px;
-  height: 500px; */
-  border: 1px solid rgba(0, 0, 0, 0.5);
+.app-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.sidenav {
-  padding: 20px;
+.container {
+  flex: 1;
 }
 
-.content {
-  /* display: flex;
-  height: 100%; */
-  align-items: center;
-  justify-content: center;
+.app-header .app-title {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.sidenav-list {
+  padding-top: 0px !important;
+}
+
+.sidenav-list span {
+  padding-left: 16px;
+  /* padding-right: 16px; */
+}
+
+.sidenav-list-item.active {
+  background-color: var(--accent-light) !important;
+}
+
+.sidenav-list-item:hover {
+  background-color: var(--accent-dark) !important;
+  color: #ffffff;
 }

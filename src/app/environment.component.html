@@ -1,0 +1,8 @@
+<div class="view-loader"
+  *ngIf="!environment">
+  <md-spinner></md-spinner>
+</div>
+<div class="content"
+  *ngIf="environment">
+  <h2>{{environment.displayName}}</h2>
+</div>
