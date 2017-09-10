@@ -4,5 +4,11 @@
 </div>
 <div class="content"
   *ngIf="environment">
-  <h2>{{environment.displayName}}</h2>
+  <md-toolbar class="view-header">
+    <button md-icon-button
+      routerLink="/environments">
+      <md-icon>arrow_upward</md-icon>
+    </button>
+    <span class="view-title">Environment: {{environment.displayName}}</span>
+  </md-toolbar>
 </div>

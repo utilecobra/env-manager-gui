@@ -6,7 +6,7 @@ import { Environment } from './environment';
 
 @Injectable()
 export class EnvironmentsService {
-  private backendUrl = 'http://localhost:3000';
+  private backendUrl = 'http://localhost:3000/api/v1';
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) { }
@@ -20,7 +20,7 @@ export class EnvironmentsService {
       .then(res => res.json() as Environment[]);
   }
 
-  getEnvironment(id: number): Promise<Environment> {
+  getEnvironment(id: string): Promise<Environment> {
     const url = `${this.backendUrl}/environments/${id}`;
 
     return this.http

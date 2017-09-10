@@ -1,1 +1,20 @@
-<h1>Environments</h1>
+<md-toolbar class="view-header">
+  <span class="view-title">Environments</span>
+  <span class="fill-h"></span>
+  <button md-icon-button>
+    <md-icon>add</md-icon>
+  </button>
+</md-toolbar>
+<md-nav-list>
+  <md-list-item
+    *ngFor="let environment of environments"
+    routerLink="/environment/{{environment.id}}">
+    <md-icon mdListIcon>desktop_windows</md-icon>
+    <h3 mdLine>{{environment.displayName}}</h3>
+    <p mdLine>{{environment.host}}</p>
+    <button md-icon-button
+      (click)="$event.stopPropagation()">
+      <md-icon>delete</md-icon>
+    </button>
+  </md-list-item>
+</md-nav-list>

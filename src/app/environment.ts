@@ -1,5 +1,5 @@
 export class Environment {
-  id: number;
+  id: string;
   displayName: string;
   host: string;
 }

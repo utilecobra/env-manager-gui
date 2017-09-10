@@ -27,3 +27,15 @@ div.view-loader {
   align-items: center;
   justify-content: center;
 }
+
+.view-header {
+  background-color: var(--primary-light);
+}
+
+.view-title {
+  padding-left: 16px;
+}
+
+.fill-h {
+  flex: 1 1 auto;
+}

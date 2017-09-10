@@ -21,7 +21,10 @@ export class EnvironmentComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap
-      .switchMap((params: ParamMap) => this.environmentsService.getEnvironment(+params.get('id')))
+      .switchMap((params: ParamMap) => {
+        this.environment = null;
+        return this.environmentsService.getEnvironment(params.get('id'));
+      })
       .subscribe(environment => this.environment = environment);
   }
 }
