@@ -2,20 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
-import { Environment } from './environment';
+import { Environment } from '../environment';
 
-import { EnvironmentsService } from './environments.service';
+import { EnvironmentService } from '../environment.service';
 
 @Component({
-  selector: 'app-environment',
-  templateUrl: 'environment.component.html'
+  selector: 'app-environment-detail',
+  templateUrl: 'environment-detail.component.html',
+  styleUrls: ['environment-detail.component.css']
 })
 
-export class EnvironmentComponent implements OnInit {
+export class EnvironmentDetailComponent implements OnInit {
   environment: Environment;
 
   constructor(
-    private environmentsService: EnvironmentsService,
+    private environmentsService: EnvironmentService,
     private route: ActivatedRoute,
   ) { }
 

@@ -1,0 +1,18 @@
+<md-nav-list class="sidenav-list">
+  <md-list-item class="sidenav-list-item"
+    *ngFor="let navItem of navItems"
+    (click)="sidenav.close()"
+    routerLink="{{navItem.link}}"
+    routerLinkActive="active">
+    <md-icon>{{navItem.icon}}</md-icon>
+    <span>{{navItem.label}}</span>
+  </md-list-item>
+  <md-divider></md-divider>
+  <md-list-item class="sidenav-list-item"
+    *ngFor="let environment of environments"
+    (click)="sidenav.close()"
+    routerLink="/environment/{{environment.id}}">
+    <md-icon>desktop_windows</md-icon>
+    <span>{{environment.displayName}}</span>
+  </md-list-item>
+</md-nav-list>

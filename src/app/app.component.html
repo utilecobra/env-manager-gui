@@ -6,24 +6,7 @@
             {{title}}
           </span>
         </md-toolbar>
-        <md-nav-list class="sidenav-list">
-          <md-list-item class="sidenav-list-item"
-            *ngFor="let item of mainNavigation"
-            (click)="onNavigate()"
-            routerLink="{{item.link}}"
-            routerLinkActive="active">
-            <md-icon>{{item.icon}}</md-icon>
-            <span>{{item.label}}</span>
-          </md-list-item>
-          <md-divider></md-divider>
-          <md-list-item class="sidenav-list-item"
-            *ngFor="let environment of environments"
-            (click)="onNavigate()"
-            routerLink="/environment/{{environment.id}}">
-            <md-icon>desktop_windows</md-icon>
-            <span>{{environment.displayName}}</span>
-          </md-list-item>
-        </md-nav-list>
+        <app-nav-main [sidenav]="sidenav"></app-nav-main>
       </md-sidenav>
       <md-toolbar class="app-header" color="primary">
       <button md-icon-button

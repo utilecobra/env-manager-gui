@@ -1,0 +1,24 @@
+<h2 md-dialog-title>New environment</h2>
+<md-dialog-content>
+  <form #createForm="ngForm">
+    <md-form-field class="full-width">
+      <input mdInput name="displayName" placeholder="Name" [(ngModel)]="data.displayName" required>
+    </md-form-field>
+    <md-form-field class="full-width">
+      <input mdInput name="host" placeholder="Host" [(ngModel)]="data.host" required>
+    </md-form-field>
+  </form>
+</md-dialog-content>
+<md-dialog-actions>
+  <button md-button color="primary"
+    md-dialog-close>
+    {{'Cancel' | uppercase}}
+  </button>
+  <button md-raised-button
+    type="submit"
+    color="primary"
+    [disabled]="!createForm.form.valid"
+    [md-dialog-close]="data">
+    {{'Create' | uppercase}}
+  </button>
+</md-dialog-actions>

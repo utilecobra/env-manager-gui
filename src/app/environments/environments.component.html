@@ -1,11 +1,13 @@
 <md-toolbar class="view-header">
   <span class="view-title">Environments</span>
   <span class="fill-h"></span>
-  <button md-icon-button>
+  <button md-icon-button
+    (click)="openCreateEnvironmentDialog()">
     <md-icon>add</md-icon>
   </button>
 </md-toolbar>
-<md-nav-list>
+<app-working-indicator [active]="working"></app-working-indicator>
+<md-nav-list class="environments-list">
   <md-list-item
     *ngFor="let environment of environments"
     routerLink="/environment/{{environment.id}}">
@@ -13,7 +15,7 @@
     <h3 mdLine>{{environment.displayName}}</h3>
     <p mdLine>{{environment.host}}</p>
     <button md-icon-button
-      (click)="$event.stopPropagation()">
+      (click)="deleteEnvironment(environment); $event.stopPropagation()">
       <md-icon>delete</md-icon>
     </button>
   </md-list-item>

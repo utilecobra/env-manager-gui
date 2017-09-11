@@ -39,3 +39,7 @@ div.view-loader {
 .fill-h {
   flex: 1 1 auto;
 }
+
+.mat-dialog-actions {
+  justify-content: flex-end;
+}

@@ -6,6 +6,10 @@ import {
   MdIconModule,
   MdListModule,
   MdProgressSpinnerModule,
+  MdProgressBarModule,
+  MdDialogModule,
+  MdSnackBarModule,
+  MdInputModule,
 } from '@angular/material';
 
 @NgModule({
@@ -16,6 +20,10 @@ import {
     MdIconModule,
     MdListModule,
     MdProgressSpinnerModule,
+    MdProgressBarModule,
+    MdDialogModule,
+    MdSnackBarModule,
+    MdInputModule,
   ],
   exports: [
     MdButtonModule,
@@ -24,6 +32,10 @@ import {
     MdIconModule,
     MdListModule,
     MdProgressSpinnerModule,
+    MdProgressBarModule,
+    MdDialogModule,
+    MdSnackBarModule,
+    MdInputModule,
   ]
 })
 
