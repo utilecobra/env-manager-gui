@@ -21,16 +21,17 @@ export class EnvironmentService {
     this.environmentsSource.next(this.environments);
   }
 
-  refreshEnvironments(): void {
+  refreshEnvironments(): Promise<void> {
     const url = `${this.backendUrl}/environments`;
 
-    this.http
+    return this.http
       .get(url)
       .toPromise()
       .then(res => {
         this.environments = res.json();
         this.onEnvironmentsChanged();
-      });
+      })
+      .catch(this.handleError);
   }
 
   getEnvironments(): Promise<Environment[]> {
@@ -71,5 +72,10 @@ export class EnvironmentService {
         this.environments = this.environments.filter(e => e.id !== id);
         this.onEnvironmentsChanged();
       });
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error);
+    return Promise.reject(error.message || error);
   }
 }

@@ -55,7 +55,7 @@ export class EnvironmentsComponent implements OnInit {
       .createEnvironment(displayName, host)
       .then(() => {
         this.working = false;
-        this.snackBar.open('Environment created.', 'DISMISS', {duration: 10000});
+        this.snackBar.open('Environment created.', 'DISMISS', {duration: 7000});
       });
     }
 
@@ -65,7 +65,7 @@ export class EnvironmentsComponent implements OnInit {
       .deleteEnvironment(environment.id)
       .then(() => {
         this.working = false;
-        this.snackBar.open('Environment deleted.', 'DISMISS', {duration: 10000});
+        this.snackBar.open('Environment deleted.', 'DISMISS', {duration: 7000});
       });
   }
 }
