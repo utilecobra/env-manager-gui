@@ -30,8 +30,7 @@ export class EnvironmentsComponent implements OnInit {
 
   ngOnInit() {
     this.environmentService
-      .getEnvironments()
-      .then(environments => this.environments = environments);
+      .refreshEnvironments();
   }
 
   openCreateEnvironmentDialog(): void {

@@ -11,4 +11,27 @@
     </button>
     <span class="view-title">Environment: {{environment.displayName}}</span>
   </md-toolbar>
+  <app-working-indicator [active]="working"></app-working-indicator>
+  <md-table #servicesTable [dataSource]="servicesSource">
+    <ng-container mdColumnDef="health">
+      <md-header-cell *mdHeaderCellDef>Health</md-header-cell>
+      <md-cell *mdCellDef="let service">
+        <md-icon>check</md-icon>
+      </md-cell>
+    </ng-container>
+    <ng-container mdColumnDef="name">
+      <md-header-cell *mdHeaderCellDef>Name</md-header-cell>
+      <md-cell *mdCellDef="let service">
+        <span>{{service.displayName}}</span>
+      </md-cell>
+    </ng-container>
+    <ng-container mdColumnDef="nodes">
+      <md-header-cell *mdHeaderCellDef>Nodes</md-header-cell>
+      <md-cell *mdCellDef="let service">
+        <span *ngIf="service.status">{{service.status.presentNodes}}/{{service.status.requiredNodes}}</span>
+      </md-cell>
+    </ng-container>
+    <md-header-row *mdHeaderRowDef="['name', 'nodes', 'health']"></md-header-row>
+    <md-row *mdRowDef="let service; columns: ['name', 'nodes', 'health'];"></md-row>
+  </md-table>
 </div>

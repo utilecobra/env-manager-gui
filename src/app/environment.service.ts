@@ -5,6 +5,7 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Environment } from './environment';
+import { Service } from './service';
 
 @Injectable()
 export class EnvironmentService {
@@ -14,8 +15,11 @@ export class EnvironmentService {
   private environments: Environment[];
   private environmentsSource = new Subject<Environment[]>();
   environments$ = this.environmentsSource.asObservable();
+  private environmentsInitialized: boolean;
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+    this.environmentsInitialized = false;
+   }
 
   onEnvironmentsChanged(): void {
     this.environmentsSource.next(this.environments);
@@ -35,7 +39,15 @@ export class EnvironmentService {
   }
 
   getEnvironments(): Promise<Environment[]> {
-    return Promise.resolve(this.environments);
+    if (!this.environmentsInitialized) {
+      return this.refreshEnvironments()
+        .then(() => {
+          this.environmentsInitialized = true;
+          return this.environments as Environment[];
+        });
+    } else {
+      return Promise.resolve(this.environments);
+    }
   }
 
   getEnvironment(id: string): Promise<Environment> {
@@ -72,6 +84,16 @@ export class EnvironmentService {
         this.environments = this.environments.filter(e => e.id !== id);
         this.onEnvironmentsChanged();
       });
+  }
+
+  getEnvironmentServices(id: string): Promise<Service[]> {
+    const url = `${this.backendUrl}/environments/${id}/services`;
+
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(res => res.json() as Service[])
+      .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {

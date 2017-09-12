@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MaterialModule } from './material/material.module';
 
 import { EnvironmentService } from './environment.service';
+import { ServiceService } from './service.service';
 
 import { AppComponent } from './app.component';
 import { DeleteConfirmDialogComponent } from './delete-confirm-dialog/delete-confirm-dialog.component';
@@ -39,6 +40,7 @@ import { WorkingIndicatorComponent } from './working-indicator/working-indicator
   ],
   providers: [
     EnvironmentService,
+    ServiceService,
   ],
   entryComponents: [
     CreateEnvironmentDialogComponent,

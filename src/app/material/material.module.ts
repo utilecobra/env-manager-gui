@@ -10,6 +10,7 @@ import {
   MdDialogModule,
   MdSnackBarModule,
   MdInputModule,
+  MdTableModule,
 } from '@angular/material';
 
 @NgModule({
@@ -24,6 +25,7 @@ import {
     MdDialogModule,
     MdSnackBarModule,
     MdInputModule,
+    MdTableModule,
   ],
   exports: [
     MdButtonModule,
@@ -36,6 +38,7 @@ import {
     MdDialogModule,
     MdSnackBarModule,
     MdInputModule,
+    MdTableModule,
   ]
 })
 

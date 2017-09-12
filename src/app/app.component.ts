@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MdSnackBar } from '@angular/material';
-
-import { EnvironmentService } from './environment.service';
 
 @Component({
   selector: 'app-root',
@@ -12,17 +9,7 @@ import { EnvironmentService } from './environment.service';
 export class AppComponent implements OnInit {
   title = 'Env Manager';
 
-  constructor (
-    private environmentService: EnvironmentService,
-    public snackBar: MdSnackBar,
-  ) { }
+  constructor ( ) { }
 
-  ngOnInit(): void {
-    this.environmentService
-      .refreshEnvironments()
-      .then()
-      .catch(() => {
-        this.snackBar.open('Error loading environments!', 'DISMISS', {duration: 7000});
-      });
-  }
+  ngOnInit(): void { }
 }
